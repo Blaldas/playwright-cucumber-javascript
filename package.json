@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "cucumber": "cucumber-js tests/features --require tests/features/step_definitions/**/*.js"
+    "cucumber": "cucumber-js tests/features --require tests/features/step_definitions/**/*.js",
+    "headed": "set HEADLESS=false&& npm run cucumber",
+    "analysis": "set HEADLESS=false&& set CLOSE=false&& npm run cucumber"
   },
   "keywords": [],
   "author": "",

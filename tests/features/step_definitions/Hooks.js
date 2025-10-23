@@ -30,9 +30,9 @@ Before(async function (scenario) {
 
   // helper to cleanly close browser/context/page from After hook
   this.closeBrowser = async () => {
-    try { if (this.page && !this.page.isClosed()) await this.page.close(); } catch {}
-    try { if (this.context) await this.context.close(); } catch {}
-    try { if (this.browser) await this.browser.close(); } catch {}
+    try { if (this.page && !this.page.isClosed()) await this.page.close(); } catch { }
+    try { if (this.context) await this.context.close(); } catch { }
+    try { if (this.browser) await this.browser.close(); } catch { }
   };
 });
 
@@ -56,6 +56,9 @@ After(async function (scenario) {
     console.log(`✅ Scenario passed: ${scenario.pickle.name}`);
   }
 
+  const close = { close: process.env.CLOSE !== 'false' };
+
+  if (close == 'false') {
   await this.closeBrowser();
 });
 
