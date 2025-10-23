@@ -2,7 +2,9 @@
   "name": "plawrigt-cucumber-javascript",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "cucumber": "cucumber-js tests/features --require tests/features/step_definitions/**/*.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -22,10 +24,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Blaldas/playwright-cucumber-javascript.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Blaldas/playwright-cucumber-javascript/issues"
+    "bugs": {
+      "url": "https://github.com/Blaldas/playwright-cucumber-javascript/issues"
+    },
+    "cucumber": "cucumber-js tests --require tests/steps/*.js"
   },
   "homepage": "https://github.com/Blaldas/playwright-cucumber-javascript#readme"
 }
