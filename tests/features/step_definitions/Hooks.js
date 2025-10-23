@@ -60,6 +60,7 @@ After(async function (scenario) {
 
   if (close == 'false') {
   await this.closeBrowser();
+  }
 });
 
 // --- Optional: global teardown after all tests ---
