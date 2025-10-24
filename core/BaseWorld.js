@@ -25,10 +25,19 @@ export class BaseWorld {
     }
 
     async closeBrowser() {
-        const close = { close: process.env.CLOSE !== 'false' };
+        // If CLOSE is set to "false", keep browser open for debugging.
+        const keepOpen = process.env.CLOSE === 'false';
+        if (keepOpen) return;
 
-        if (close == 'false') {
-            await super.closeBrowser();
-        }
+        // Close resources in page -> context -> browser order, ignoring errors.
+        try { if (this.page && !this.page.isClosed()) await this.page.close(); } catch (e) { /* ignore */ }
+        try { if (this.context) await this.context.close(); } catch (e) { /* ignore */ }
+        try { if (this.browser) await this.browser.close(); } catch (e) { /* ignore */ }
+
+        // Clear references so subsequent scenarios don't reuse stale objects.
+        this.page = null;
+        this.context = null;
+        this.browser = null;
+        this.currentPage = null;
     }
 }
