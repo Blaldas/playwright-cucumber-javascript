@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { BaseWorld } from '../../../core/BaseWorld.js';    
 import { StartingPage } from '../pages/StartingPage.js';
 
