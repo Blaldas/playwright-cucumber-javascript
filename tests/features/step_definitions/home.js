@@ -2,18 +2,14 @@ import { When } from '@cucumber/cucumber';
 
 // /C:/Users/marmi/Desktop/plawrigt-cucumber-javascript/steps/steps.js
 
-When('I search for {string}', async function (query) {
-    // TODO: perform the search using `query`
-    // Example placeholder: store the query on the world for later assertions
-        console.log(`abhsasbashbhbasahbsahbsbbshbhasashb`);
-         console.log(`abhsasbashbhbasahbsahbsbbshbhasashb`);
-          console.log(`abhsasbashbhbasahbsahbsbbshbhasashb`);
-           console.log(`abhsasbashbhbasahbsahbsbbshbhasashb`);
-            console.log(`abhsasbashbhbasahbsahbsbbshbhasashb`);
+When('I search for {string}', async function (url) {
+    if (!this.page) {
+        throw new Error('No Playwright page found on World. Ensure Hooks.js sets this.page in the Before hook.');
+    }
 
+    // If the user passed a bare host like "google" or "www.google.com", prepend https://
+    const normalized = /^[a-zA-Z][a-zA-Z0-9+.-]*:\/\//.test(url) ? url : `https://${url}`;
 
+    await this.page.goto(normalized, { waitUntil: 'load' });
 
-    // If you want to integrate with a page object or browser, do it here:
-    // await this.page.fill('#search', query);
-    // await this.page.click('#search-button');
 });

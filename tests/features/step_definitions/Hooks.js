@@ -59,7 +59,7 @@ After(async function (scenario) {
   const close = { close: process.env.CLOSE !== 'false' };
 
   if (close == 'false') {
-  await this.closeBrowser();
+    await this.closeBrowser();
   }
 });
 
