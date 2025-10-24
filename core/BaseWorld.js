@@ -1,6 +1,10 @@
 import { chromium } from 'playwright';
 
 export class BaseWorld {
+
+    //this will be the state machine variable, its shousld store the current page object
+    currentPage = null;
+
     async openBrowser() {
         // Choose browser: set BROWSER=chrome to use installed Chrome, BROWSER=msedge for Edge,
         // otherwise default to Playwright's chromium.
@@ -24,7 +28,7 @@ export class BaseWorld {
         const close = { close: process.env.CLOSE !== 'false' };
 
         if (close == 'false') {
-            await this.closeBrowser();
+            await super.closeBrowser();
         }
     }
 }

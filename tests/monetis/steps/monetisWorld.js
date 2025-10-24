@@ -1,13 +1,15 @@
-import { setWorldConstructor, World } from '@cucumber/cucumber';
 import { BaseWorld } from '../../../core/BaseWorld.js';    
-import { MonetisLoginPage } from '../pages/MonetisLoginPage.js';
+import { StartingPage } from '../pages/StartingPage.js';
 
 
-class MonetisWorld extends BaseWorld {
+export class MonetisWorld extends BaseWorld {
 
   async initPages() {
-    this.loginPage = new MonetisLoginPage(this.page);
+    await this.openBrowser();
+    await this.page.goto("https://monetis-delta.vercel.app/");
+
+    // starting page for monetis POM pattern
+    this.currentPage = new StartingPage(this.page);
   }
 }
 
-setWorldConstructor(MonetisWorld);

@@ -11,7 +11,7 @@ BeforeAll(async function () {
 Before(async function (scenario) {
   console.log(`Running Before for scenario: ${scenario.pickle.name}`);
   
-  await this.openBrowser();
+  await this.initPages();
 });
 
 

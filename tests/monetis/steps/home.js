@@ -10,6 +10,10 @@ When('I search for {string}', async function (url) {
     // If the user passed a bare host like "google" or "www.google.com", prepend https://
     const normalized = /^[a-zA-Z][a-zA-Z0-9+.-]*:\/\//.test(url) ? url : `https://${url}`;
 
-    await this.page.goto(normalized, { waitUntil: 'load' });
+    // await this.page.goto(normalized, { waitUntil: 'load' });
 
+});
+
+When('I click on {string} button', async function (buttonName) {
+    this.currentPage.clickOnButton(buttonName);
 });
