@@ -15,5 +15,5 @@ When('I search for {string}', async function (url) {
 });
 
 When('I click on {string} button', async function (buttonName) {
-    this.currentPage.clickOnButton(buttonName);
+   await this.currentPage.clickOnButton(buttonName);
 });
