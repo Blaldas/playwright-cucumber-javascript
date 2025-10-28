@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "githubActions": "cucumber-js \"tests/**/features\" --require \"tests/**/steps/**/*.js\" --require \"core/*.js\"",
-    "cucumber": "cucumber-js tests/**/features --require tests/**/steps/*.js --require core/*.js",
+    "cucumber": "cucumber-js \"tests/**/features\" --require \"tests/**/steps/*.js\" --require \"core/*.js\"",
     "headed": "set HEADLESS=false&& npm run cucumber",
     "analysis": "set HEADLESS=false&& set CLOSE=false&& npm run cucumber"
   },
